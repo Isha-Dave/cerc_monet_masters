@@ -1,0 +1,10 @@
+# Final Code (Run 5) by Vihaan
+drive_base.straight(700)
+drive_base.turn(45)
+drive_base.straight(100)
+drive_base.straight(-120)
+drive_base.turn(-45)
+drive_base.straight(120)
+front_motor.run_time(-390,1000,Stop.HOLD,True)
+drive_base.turn(45)
+front_motor.run_time(390,1000,Stop.HOLD,True)
