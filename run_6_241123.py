@@ -13,8 +13,8 @@ hub = PrimeHub()
 
 # Initialize both motors. In this example, the motor on the
 # left must turn counterclockwise to make the robot go forward.
-left_motor = Motor(Port.A, Direction.COUNTERCLOCKWISE)
-right_motor = Motor(Port.B)
+left_motor = Motor(Port.B, Direction.COUNTERCLOCKWISE)
+right_motor = Motor(Port.A)
 
 # Initialize the drive base. 
 # In our robot, the wheel diameter is 88mm.

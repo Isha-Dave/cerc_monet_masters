@@ -6,7 +6,7 @@ from pybricks.tools import wait, StopWatch, hub_menu, multitask, run_task
 
 
 # Choose a letter.
-selected = hub_menu(1,2,3,4,5,6,7,8,9,10)
+selected = hub_menu(1,2,3,4,5,6,7,8)
 
 # Based on the selection, run a program.
 if selected == 1:
@@ -14,7 +14,7 @@ if selected == 1:
 elif selected == 2:
     import run_2_241123 #
 elif selected == 3:
-    import run_3_241123
+    import run_3_25_11_23
 elif selected == 4:
     import run_4_241123
 elif selected == 5:
