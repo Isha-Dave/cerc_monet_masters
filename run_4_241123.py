@@ -47,12 +47,11 @@ drive_base.turn(20)
 front_motor.run_angle(500,400)
 drive_base.straight(-80)
 drive_base.turn(45)
-drive_base.straight(1160)
+drive_base.straight(1150)
 
-front_motor.run_angle(500,-400)
+drive_base.turn(45)
+back_motor.run_angle(500,-300) # Negative value of angle means move arm DOWN
+back_motor.run_angle(500,300) # Negative value of angle means move arm DOWN
 
-drive_base.turn(-30)
-drive_base.straight(150)
-drive_base.straight(-50)
-drive_base.turn(-80)
-drive_base.straight(-750)
+drive_base.turn(20)
+drive_base.straight(700)

@@ -36,76 +36,77 @@ left_sensor = ColorSensor(Port.E)
 # Code for the robot
 #-----------------------------------------
 #move for 10cm
-drive_base.straight(100)
+drive_base.straight(110)
 #turn right 42 degrees
 drive_base.turn(46)
-
-drive_base.straight(400)
+#Move towards sound mixer
+drive_base.straight(375)
 
 #Default speed settings for the drive_base (307,1152,202,910)
 #Reduce the straight and turn speed + acceleration to improve accuracy
 drive_base.settings(straight_speed=100,straight_acceleration=600)
 drive_base.settings(turn_rate=80,turn_acceleration=250)
-
-front_motor.run_angle(200,100)
+#mimic the action of pushing up, moving forward - do this two times to lift
+#the sound mixer
+front_motor.run_angle(200,120)
 drive_base.straight(15)
-front_motor.run_angle(180,100)
+front_motor.run_angle(200,120)
 drive_base.straight(10)
 
-
-drive_base.turn(15)
+#Now slowly turn the sound mixer so that the middle control can stay 
+drive_base.turn(12)
 wait(600)
 drive_base.straight(-40)
 drive_base.turn(30)
 
-#set the drive base turn rate to same values as earlier
-##Reset the drive base settings to original value
-
+##Reset the drive base settings to slightly less than the original value
 drive_base.settings(straight_speed=307,straight_acceleration=1152)
-drive_base.settings(turn_rate=202,turn_acceleration=910)
-drive_base.straight(420)
+drive_base.settings(turn_rate=150,turn_acceleration=600)
+
+drive_base.straight(400)
 drive_base.turn(85)
-drive_base.straight(115)
+drive_base.straight(150) # changing
 front_motor.run_angle(150,-200)
 
 #slow speed to move backwards and slow turn
 drive_base.settings(straight_speed=100,straight_acceleration=600)
-drive_base.settings(turn_rate=80,turn_acceleration=250)
-
+drive_base.settings(turn_rate=80,turn_acceleration=450)
 drive_base.straight(-100)
-drive_base.turn(70)
+drive_base.turn(68)
+
+front_motor.run_angle(200,240)
+drive_base.straight(-80) # move backwards from the camera
 
 #set to original value
-drive_base.settings(turn_rate=202,turn_acceleration=910)
 drive_base.settings(straight_speed=307,straight_acceleration=1152)
-
-front_motor.run_angle(150,240)
-drive_base.straight(-50) # move backwards from the camera
-
-drive_base.turn(-140) # turn towards one of the figures
+drive_base.settings(turn_rate=202,turn_acceleration=910)
+#wait(100)
+drive_base.turn(-120) # turn towards one of the figures
 #Drop the two audience members mid way in the run 
 drive_base.straight(230)
-back_motor.run_angle(300,-250) # Negative value of angle means move arm DOWN
-back_motor.run_angle(300,250) # Negative value of angle means move arm DOWN
 
-#Continue to the expert 
+#### Drive base turn to straighten before dropping mini figures 
+drive_base.turn(-30)
+back_motor.run_angle(500,-300) # Negative value of angle means move arm DOWN
+back_motor.run_angle(500,300) # Negative value of angle means move arm DOWN
 
-drive_base.settings(turn_rate=80,turn_acceleration=250)
-drive_base.settings(straight_speed=200,straight_acceleration=600)
+#slow down to increase the accuracy of the movement towards the expert
+drive_base.settings(straight_speed=200,straight_acceleration=800)
+drive_base.settings(turn_rate=80,turn_acceleration=200)
+drive_base.turn(10) # turn back to point to the expert - Sam??
 drive_base.straight(220)
-#secure the first expert
-drive_base.turn(-60)
-#collect and secure the second expert
-drive_base.straight(120)
-front_motor.run_angle(150,-220)
 
-
+drive_base.turn(-50)
+##collect and secure the second expert
+drive_base.straight(140)
+front_motor.run_angle(150,-230)
 
 #set to original value
 drive_base.settings(turn_rate=202,turn_acceleration=910)
 drive_base.settings(straight_speed=307,straight_acceleration=1152)
 
-drive_base.turn(45)
+#Drive the robot back to left area 
+drive_base.turn(42)
 drive_base.straight(-1200)
-drive_base.turn(-60)
+drive_base.turn(-70)
 drive_base.straight(-300)

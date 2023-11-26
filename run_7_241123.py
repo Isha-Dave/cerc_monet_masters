@@ -39,24 +39,25 @@ left_sensor = ColorSensor(Port.E)
 #------------------------------------------
 # Code for the robot
 #-----------------------------------------
-drive_base.straight(765)
-front_motor.run_angle(200,-250)
-drive_base.straight(-50)
-front_motor.run_angle(200,250)
-drive_base.turn(45)
-drive_base.straight(150)
-drive_base.straight(-120)
-front_motor.run_angle(200,-260)
-drive_base.straight(-20)
-drive_base.turn(-15)
-drive_base.straight(110)
-front_motor.run_angle(4000,100,Stop.HOLD,True)
-drive_base.turn(-10,Stop.HOLD,True)
-front_motor.run_angle(4000,-100,Stop.HOLD,True)
-drive_base.straight(-220)
-drive_base.turn(65)
-front_motor.run_angle(4000,225,Stop.HOLD,True)#
-drive_base.straight(350)
-drive_base.turn(-90)
-drive_base.straight(120)
-drive_base.turn(-60)
+#reducing the turn speed and acceleration to increase accuracy
+drive_base.settings(turn_rate=80,turn_acceleration=200)
+
+#Intersting that the first two lines of code can push the hologram performer
+#Only the angle needs to be +15)
+drive_base.straight(400) 
+drive_base.turn(-10)
+drive_base.straight(365)
+
+
+##print(drive_base.settings())
+front_motor.run_angle(200,-175)
+drive_base.turn(55)
+drive_base.settings(straight_speed=100,straight_acceleration=250)
+drive_base.straight(70)
+
+front_motor.run_angle(200,60)
+drive_base.turn(-10)
+front_motor.run_angle(200,-60)
+#raise the front motor
+front_motor.run_angle(200,220)
+

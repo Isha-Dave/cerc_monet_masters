@@ -2,7 +2,7 @@ from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor, ColorSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
 from pybricks.robotics import DriveBase
-from pybricks.tools import wait, StopWatch, hub_menu, multitask, run_task
+from pybricks.tools import wait, StopWatch
 
 hub = PrimeHub()
 #Initialisate the robot 
@@ -31,82 +31,48 @@ back_motor = Motor(Port.C)
 right_sensor = ColorSensor(Port.F)
 left_sensor = ColorSensor(Port.E)
 
-
 #------------------------------------------
 # Code for the robot
-#-----------------------------------------
-#move for 10cm
-drive_base.straight(110)
-#turn right 42 degrees
-drive_base.turn(46)
+#------------------------------------------
+#Drive the robot to drop the art piece and museum director
+drive_base.straight(315)
+drive_base.turn(-22)
+front_motor.run_angle(500,-400)
+wait(200)
+front_motor.run_angle(500,400)
 
-drive_base.straight(365)
-
-#Default speed settings for the drive_base (307,1152,202,910)
-#Reduce the straight and turn speed + acceleration to improve accuracy
-drive_base.settings(straight_speed=100,straight_acceleration=600)
-drive_base.settings(turn_rate=80,turn_acceleration=250)
-
-front_motor.run_angle(200,100)
-drive_base.straight(15)
-front_motor.run_angle(180,100)
+drive_base.straight(-105)
+drive_base.turn(60)
+drive_base.straight(355)
+drive_base.turn(-30)
+drive_base.straight(160) # approach the theater scene change 
+drive_base.turn(-50)
+#drive_base.straight(10) # move forward just a little bit to align better
+front_motor.run_angle(400,-450)
+wait(1000)
 drive_base.straight(10)
+wait(250)
+drive_base.straight(-50)
 
+front_motor.run_angle(400,450)
 
-drive_base.turn(15)
-wait(600)
-drive_base.straight(-40)
-drive_base.turn(30)
+#slow down to increase the accuracy of the movement towards the expert
+drive_base.settings(straight_speed=200,straight_acceleration=800)
+drive_base.settings(turn_rate=80,turn_acceleration=200)
+drive_base.turn(27)
+drive_base.straight(150)
+front_motor.run_angle(500,-360)
+drive_base.turn(17)
 
-#set the drive base turn rate to same values as earlier
-##Reset the drive base settings to original value
-
-drive_base.settings(straight_speed=307,straight_acceleration=1152)
-drive_base.settings(turn_rate=202,turn_acceleration=910)
-drive_base.straight(420)
-drive_base.turn(85)
-drive_base.straight(115)
-front_motor.run_angle(150,-200)
-
-#slow speed to move backwards and slow turn
-drive_base.settings(straight_speed=100,straight_acceleration=600)
-drive_base.settings(turn_rate=80,turn_acceleration=250)
-
-drive_base.straight(-100)
-drive_base.turn(70)
-
-#set to original value
-drive_base.settings(turn_rate=202,turn_acceleration=910)
-drive_base.settings(straight_speed=307,straight_acceleration=1152)
-
-
-front_motor.run_angle(150,240)
-drive_base.straight(-50) # move backwards from the camera
-
-drive_base.turn(-140) # turn towards one of the figures
-#Drop the two audience members mid way in the run 
-drive_base.straight(240)
+#Drop the audience member
 back_motor.run_angle(300,-250) # Negative value of angle means move arm DOWN
 back_motor.run_angle(300,250) # Negative value of angle means move arm DOWN
 
-#Continue to the expert 
-drive_base.straight(230)
-drive_base.settings(turn_rate=80,turn_acceleration=250)
-drive_base.settings(straight_speed=100,straight_acceleration=600)
-
-#secure the first expert
-drive_base.turn(-60)
-#collect and secure the second expert
-drive_base.straight(120)
-front_motor.run_angle(150,-220)
-
-
-
 #set to original value
 drive_base.settings(turn_rate=202,turn_acceleration=910)
 drive_base.settings(straight_speed=307,straight_acceleration=1152)
 
-drive_base.turn(45)
-drive_base.straight(-1200)
-drive_base.turn(-60)
-drive_base.straight(-300)
+drive_base.curve(-950,-45)
+
+
+

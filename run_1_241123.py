@@ -61,11 +61,12 @@ drive_base.straight(140)
 # Now move towards mission 4 - 3D reality
 drive_base.turn(137)
 front_motor.run_angle(400,250) # reset motor arm 
-drive_base.straight(400)
+drive_base.straight(390)
 drive_base.turn(90)
 drive_base.straight(15)
 front_motor.run_angle(200,-300)
 wait(1500)
+front_motor.run_angle(400,220)
 drive_base.curve(-600,-110)
 
 
